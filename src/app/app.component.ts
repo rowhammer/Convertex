@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  rates = this.http.get('https://api.exchangeratesapi.io/latest');
   title = 'Convertex';
+  constructor(private http: HttpClient) {
+  }
+
+  ngOnInit() {
+    const rates = this.http.get('https://api.exchangeratesapi.io/latest');
+    rates.subscribe((response) => console.log(response));
+
+  }
 }

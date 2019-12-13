@@ -1,1 +1,9 @@
-<p>Currency goes here</p>
+<select>Currencies:
+  <option *ngFor="let c of rates" [ngValue]="c">{{c.code}}</option>
+</select>
+
+<input type="text" [(ngModel)]="fromText">From
+<input type="text" [(ngModel)]="toText">To
+
+<p>{{fromText}}</p>
+<p>{{toText}}</p>

@@ -1,9 +1,27 @@
-<select>Currencies:
-  <option *ngFor="let c of rates" [ngValue]="c">{{c.code}}</option>
-</select>
+<div class="contents">
+    <input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="From"(keyup)="calculateCurrencyOne()">
+    <input type="number" class="value-input" [(ngModel)]="toValue" placeholder="To"(keyup)="calculateCurrencyTwo()">
+</div>
 
-<input type="text" [(ngModel)]="fromText">From
-<input type="text" [(ngModel)]="toText">To
+<div class="selectors">
+  <select class="select-list" [(ngModel)]="fromCurr" (change)="getCurrencyRate()">
+    <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
+  </select>
+</div>
 
-<p>{{fromText}}</p>
-<p>{{toText}}</p>
+<div class="selectors">
+  <select class="select-list" [(ngModel)]="toCurr" (change)="getCurrencyRate()">
+    <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
+  </select>
+</div>
+
+<div class="names">
+  <p>{{resultRate}}</p>
+</div>
+
+<div class="countrynamesfrom">
+  <p>{{countryNames.get(fromCurr)}}</p>
+</div>
+<div class="countrynamesto">
+  <p>{{countryNames.get(toCurr)}}</p>
+</div>

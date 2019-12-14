@@ -17,20 +17,6 @@ export class CurrencyComponent implements OnInit {
   toValue: any;
   fromCurr: any = 'USD';
   toCurr: any = 'LKR';
-
-
-
-
-
-  fromText = 1;
-  toText = 1;
-  rates = [
-    {id: 1, code: 'EUR'},
-    {id: 2, code: 'GBP'},
-    {id: 3, code: 'RND'},
-    {id: 4, code: 'CAD'},
-    {id: 5, code: 'USD'}
-  ];
   constructor(protected convertService: CurrencyService, public http: HttpClient) {
    }
 
@@ -53,7 +39,25 @@ export class CurrencyComponent implements OnInit {
   }
 
   async getCurrencyRate() {
+    const from = this.fromCurr;
+    const to = this.toCurr;
+    try {
+      const exchangeRate = await this.convertService.getExchangeRate(from, to);
+      const rate = exchangeRate[from + '_' + to].val;
+      this.resultRate = rate;
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
+  calculateCurrencyOne() {
+    this.toValue = this.fromValue * parseFloat(this.resultRate);
+    console.log(`Final Value ${this.toValue}`);
+  }
+
+  calculateCurrencyTwo() {
+    this.fromValue = this.toValue / parseFloat(this.resultRate);
+    console.log(`Final Value ${this.toValue}`);
   }
 
 }

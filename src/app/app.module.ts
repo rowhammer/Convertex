@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GraphComponent } from './graph/graph.component';
+
+import { CytoscapeModule} from 'ngx-cytoscape';
+import * as cytoscape from 'cytoscape';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CytoscapeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

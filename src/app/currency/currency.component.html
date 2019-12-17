@@ -1,16 +1,16 @@
 <div class="contents">
-    <input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="From"(keyup)="calculateCurrencyOne()">
-    <input type="number" class="value-input" [(ngModel)]="toValue" placeholder="To"(keyup)="calculateCurrencyTwo()">
+    <input (keypress)="numberOnly($event)" type="number" class="value-input" [(ngModel)]="fromValue" placeholder="From"(keyup)="calculateCurrencyOne()">
+    <input (keypress)="numberOnly($event)" type="number" class="value-input" [(ngModel)]="toValue" placeholder="To"(keyup)="calculateCurrencyTwo()">
 </div>
 
-<div class="selectors">
-  <select class="select-list" [(ngModel)]="fromCurr" (change)="getCurrencyRate()">
+<div class="dropdown">
+  <select class="dropbtn" [(ngModel)]="fromCurr" (change)="getCurrencyRate()">
     <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
   </select>
 </div>
 
-<div class="selectors">
-  <select class="select-list" [(ngModel)]="toCurr" (change)="getCurrencyRate()">
+<div class="dropdown">
+  <select class="dropbtn" [(ngModel)]="toCurr" (change)="getCurrencyRate()">
     <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
   </select>
 </div>
@@ -25,3 +25,6 @@
 <div class="countrynamesto">
   <p>{{countryNames.get(toCurr)}}</p>
 </div>
+
+<!-- <ngx-cytoscape [elements]="graphData"></ngx-cytoscape> -->
+

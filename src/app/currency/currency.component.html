@@ -1,30 +1,44 @@
-<div class="contents">
-    <input id="inputFrom" (keypress)="numberOnly($event)" type="number" [(ngModel)]="fromValue" placeholder="From"(keyup)="calculateCurrencyOne()">
-    <input id="inputTo" (keypress)="numberOnly($event)" type="number"  [(ngModel)]="toValue" placeholder="To"(keyup)="calculateCurrencyTwo()">
+<div id="header">
+  <h1>Currency Conversion</h1>
+  <h2>using Angular</h2>
+  <h3>Alexander Miller (rowhammer)</h3>
 </div>
 
-<div class="contents">
-  <select class="dropbtn" [(ngModel)]="fromCurr" (change)="getCurrencyRate()">
-    <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
-  </select>
-</div>
-
-<div class="dropdown">
-  <select class="dropbtn" [(ngModel)]="toCurr" (change)="getCurrencyRate()">
-    <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
-  </select>
-</div>
-
-<div class="names">
+<div id="rate">
+  <p>Exchange Rate: </p>
   <p>{{resultRate}}</p>
 </div>
 
-<div class="countrynamesfrom">
-  <p>{{countryNames.get(fromCurr)}}</p>
+<div class="countrynames">
+  <p>Converting from {{countryNames.get(fromCurr)}} to {{countryNames.get(toCurr)}}</p>
 </div>
-<div class="countrynamesto">
-  <p>{{countryNames.get(toCurr)}}</p>
+
+<div class="inputs">
+  <p>Currency From: </p>
+    <input id="inputFrom" (keypress)="numberOnly($event)" type="number" [(ngModel)]="fromValue" placeholder="Enter first currency amount here"(keyup)="calculateCurrencyOne()">
 </div>
+
+<div class="boxes">
+  <select id="fromDrop" [(ngModel)]="fromCurr" (change)="getCurrencyRate()">
+    <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
+  </select>
+</div>
+
+<div class="inputs">
+  <p>Currency To: </p>
+  <input id="inputTo" (keypress)="numberOnly($event)" type="number"  [(ngModel)]="toValue" placeholder="Enter second currency amount here"(keyup)="calculateCurrencyTwo()">
+</div>
+
+<div class="boxes">
+  <select id="toDrop" [(ngModel)]="toCurr" (change)="getCurrencyRate()">
+    <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
+  </select>
+</div>
+
+
+
+
+
 
 <!-- <ngx-cytoscape [elements]="graphData"></ngx-cytoscape> -->
 

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CurrencyService {
 
-  apikey = 'e8d044c121e67ef6d30f';
+  apikey = '2d49ca0bfe79653d9d46';
 
   constructor(public http: HttpClient) { }
 

@@ -10,6 +10,7 @@ import { GraphComponent } from './graph/graph.component';
 
 import { CytoscapeModule} from 'ngx-cytoscape';
 import * as cytoscape from 'cytoscape';
+import { NgSelectModule } from 'ng-custom-select';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import * as cytoscape from 'cytoscape';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CytoscapeModule
+    CytoscapeModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

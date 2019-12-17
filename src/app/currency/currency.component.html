@@ -1,9 +1,9 @@
 <div class="contents">
-    <input (keypress)="numberOnly($event)" type="number" class="value-input" [(ngModel)]="fromValue" placeholder="From"(keyup)="calculateCurrencyOne()">
-    <input (keypress)="numberOnly($event)" type="number" class="value-input" [(ngModel)]="toValue" placeholder="To"(keyup)="calculateCurrencyTwo()">
+    <input id="inputFrom" (keypress)="numberOnly($event)" type="number" [(ngModel)]="fromValue" placeholder="From"(keyup)="calculateCurrencyOne()">
+    <input id="inputTo" (keypress)="numberOnly($event)" type="number"  [(ngModel)]="toValue" placeholder="To"(keyup)="calculateCurrencyTwo()">
 </div>
 
-<div class="dropdown">
+<div class="contents">
   <select class="dropbtn" [(ngModel)]="fromCurr" (change)="getCurrencyRate()">
     <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
   </select>

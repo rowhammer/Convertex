@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-currency></app-currency>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Convertex!</h1>\n<h2>A currency Converter written in Angular</h2>\n<app-currency></app-currency>\n<app-graph></app-graph>\n");
 
 /***/ }),
 
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"header\">\r\n  <h1>Currency Conversion</h1>\r\n  <h2>using Angular</h2>\r\n  <h3>Alexander Miller (rowhammer)</h3>\r\n</div>\r\n\r\n<div id=\"rate\">\r\n  <p>Exchange Rate: </p>\r\n  <p>{{resultRate}}</p>\r\n</div>\r\n\r\n<div class=\"countrynames\">\r\n  <p>Converting from {{countryNames.get(fromCurr)}} to {{countryNames.get(toCurr)}}</p>\r\n</div>\r\n\r\n<div class=\"inputs\">\r\n  <p>Currency From: </p>\r\n    <input id=\"inputFrom\" (keypress)=\"numberOnly($event)\" type=\"number\" [(ngModel)]=\"fromValue\" placeholder=\"Enter first currency amount here\"(keyup)=\"calculateCurrencyOne()\">\r\n</div>\r\n\r\n<div class=\"boxes\">\r\n  <select id=\"fromDrop\" [(ngModel)]=\"fromCurr\" (change)=\"getCurrencyRate()\">\r\n    <option *ngFor=\"let item of countryCodes\" selected value=\"{{item}}\">{{item}}</option>\r\n  </select>\r\n</div>\r\n\r\n<div class=\"inputs\">\r\n  <p>Currency To: </p>\r\n  <input id=\"inputTo\" (keypress)=\"numberOnly($event)\" type=\"number\"  [(ngModel)]=\"toValue\" placeholder=\"Enter second currency amount here\"(keyup)=\"calculateCurrencyTwo()\">\r\n</div>\r\n\r\n<div class=\"boxes\">\r\n  <select id=\"toDrop\" [(ngModel)]=\"toCurr\" (change)=\"getCurrencyRate()\">\r\n    <option *ngFor=\"let item of countryCodes\" selected value=\"{{item}}\">{{item}}</option>\r\n  </select>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!-- <ngx-cytoscape [elements]=\"graphData\"></ngx-cytoscape> -->\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"contents\">\n    <input (keypress)=\"numberOnly($event)\" type=\"number\" class=\"value-input\" [(ngModel)]=\"fromValue\" placeholder=\"From\"(keyup)=\"calculateCurrencyOne()\">\n    <input type=\"number\" class=\"value-input\" [(ngModel)]=\"toValue\" placeholder=\"To\"(keyup)=\"calculateCurrencyTwo()\">\n</div>\n\n<div class=\"selectors\">\n  <select class=\"select-list\" [(ngModel)]=\"fromCurr\" (change)=\"getCurrencyRate()\">\n    <option *ngFor=\"let item of countryCodes\" selected value=\"{{item}}\">{{item}}</option>\n  </select>\n</div>\n\n<div class=\"selectors\">\n  <select class=\"select-list\" [(ngModel)]=\"toCurr\" (change)=\"getCurrencyRate()\">\n    <option *ngFor=\"let item of countryCodes\" selected value=\"{{item}}\">{{item}}</option>\n  </select>\n</div>\n\n<div class=\"names\">\n  <p>{{resultRate}}</p>\n</div>\n\n<div class=\"countrynamesfrom\">\n  <p>{{countryNames.get(fromCurr)}}</p>\n</div>\n<div class=\"countrynamesto\">\n  <p>{{countryNames.get(toCurr)}}</p>\n</div>\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"cytograph\">\r\n  <ngx-cytoscape [elements]=\"graphData\"></ngx-cytoscape>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"height: 90%; width: 80%; float: left; overflow: auto; overflow-y: hidden\">\n  <ngx-cytoscape [elements]=\"graphData\" [layout]=\"layout\" (select)=\"nodeChange($event)\"></ngx-cytoscape>\n</div>\n\n<div style=\"height: 90%; width: 20%; float: left; overflow: auto; overflow-x: hidden\">\n  <h1>Selected Node Name</h1>\n  <h2>{{node_name}}</h2>\n</div>\n");
 
 /***/ }),
 
@@ -330,7 +330,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("p {\r\n  color: red;\r\n\r\n}\r\n\r\n.selectors {\r\n  color: green;\r\n}\r\n\r\nselect {\r\n   color: orange;\r\n}\r\n\r\noption {\r\n  color: violet;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFVOztBQUVaOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0dBQ0csYUFBYTtBQUNoQjs7QUFFQTtFQUNFLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsicCB7XHJcbiAgY29sb3I6IHJlZDtcclxuXHJcbn1cclxuXHJcbi5zZWxlY3RvcnMge1xyXG4gIGNvbG9yOiBncmVlbjtcclxufVxyXG5cclxuc2VsZWN0IHtcclxuICAgY29sb3I6IG9yYW5nZTtcclxufVxyXG5cclxub3B0aW9uIHtcclxuICBjb2xvcjogdmlvbGV0O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("h1 {\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n  color: blue;\n}\n.contents {\n  color: red;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3SUFBd0k7RUFDeEksV0FBVztBQUNiO0FBQ0E7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgxIHtcbiAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBPeHlnZW4sIFVidW50dSwgQ2FudGFyZWxsLCAnT3BlbiBTYW5zJywgJ0hlbHZldGljYSBOZXVlJywgc2Fucy1zZXJpZjtcbiAgY29sb3I6IGJsdWU7XG59XG4uY29udGVudHMge1xuICBjb2xvcjogcmVkO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -385,8 +385,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _graph_graph_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./graph/graph.component */ "./src/app/graph/graph.component.ts");
 /* harmony import */ var ngx_cytoscape__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cytoscape */ "./node_modules/ngx-cytoscape/ngx-cytoscape.umd.js");
 /* harmony import */ var ngx_cytoscape__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(ngx_cytoscape__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var ng_custom_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ng-custom-select */ "./node_modules/ng-custom-select/fesm2015/ng-custom-select.js");
-
 
 
 
@@ -411,8 +409,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-            ngx_cytoscape__WEBPACK_IMPORTED_MODULE_9__["CytoscapeModule"],
-            ng_custom_select__WEBPACK_IMPORTED_MODULE_10__["NgSelectModule"]
+            ngx_cytoscape__WEBPACK_IMPORTED_MODULE_9__["CytoscapeModule"]
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -442,7 +439,7 @@ __webpack_require__.r(__webpack_exports__);
 let CurrencyService = class CurrencyService {
     constructor(http) {
         this.http = http;
-        this.apikey = '2d49ca0bfe79653d9d46';
+        this.apikey = 'e8d044c121e67ef6d30f';
     }
     getCountries() {
         return this.http.get(`https://free.currencyconverterapi.com/api/v6/currencies?apiKey=${this.apikey}`).toPromise();
@@ -473,7 +470,7 @@ CurrencyService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("p {\r\n  color: red;\r\n  text-align: center;\r\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n}\r\nh1 {\r\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n  text-align: center;\r\n  color: #4285f4;\r\n}\r\nh2 {\r\n  color: #ea4335;\r\n  font-style: italic;\r\n  text-align: center;\r\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n}\r\nh3 {\r\n  color: #fbbc50;\r\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n  text-align: center;\r\n}\r\n.contents {\r\n  border: 1px solid black;\r\n}\r\n.inputs {\r\n  width: 300px;\r\n  margin: 0 auto;\r\n  display: block;\r\n  text-align: center;\r\n  border-radius: 25px;\r\n}\r\n#inputFrom {\r\n  border-radius: 25px;\r\n  height: 30px;\r\n  width: 300px;\r\n  background: #34a853;\r\n  padding: 1px;\r\n  border: 2px solid #34a853;\r\n  display: inline;\r\n  text-align: center;\r\n\r\n}\r\n#inputTo {\r\n  border-radius: 25px;\r\n  background: #ea4335;\r\n  padding: 1px;\r\n  border: 2px solid #ea4335;\r\n  display: inline;\r\n  height: 30px;\r\n  width: 300px;\r\n  text-align: center;\r\n}\r\n::-webkit-input-placeholder {\r\n  color: white;\r\n}\r\n::-moz-placeholder {\r\n  color: white;\r\n}\r\n::-ms-input-placeholder {\r\n  color: white;\r\n}\r\n::placeholder {\r\n  color: white;\r\n}\r\n.boxes {\r\n  padding-top:  1px;\r\n  border-radius: 5px;\r\n  display: block;\r\n  padding-left: 45%;\r\n}\r\n#fromDrop {\r\n  border: 1px solid red;\r\n  padding-bottom: 1%;\r\n  margin: 0 auto;\r\n\r\n}\r\n#toDrop {\r\n  border: 1px solid green;\r\n  padding-bottom: 1%;\r\n  margin: 0 auto;\r\n}\r\n#rate {\r\n  border: solid gray;\r\n  border-radius: 25px;\r\n  color: violet;\r\n  width: 200px;\r\n  margin: 0 auto;\r\n  padding-bottom: 10px;\r\n}\r\nselect {\r\n  color: black;\r\n  text-align: center;\r\n  border: 2px solid grey;\r\n  width: 100px;\r\n  margin: 0 auto;\r\n}\r\ninput {\r\n  color: white;\r\n  text-align: center;\r\n  display: block;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY3VycmVuY3kvY3VycmVuY3kuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsNERBQTREO0FBQzlEO0FBQ0E7RUFDRSw0REFBNEQ7RUFDNUQsa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLDREQUE0RDtBQUM5RDtBQUNBO0VBQ0UsY0FBYztFQUNkLDREQUE0RDtFQUM1RCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLHVCQUF1QjtBQUN6QjtBQUVBO0VBQ0UsWUFBWTtFQUNaLGNBQWM7RUFDZCxjQUFjO0VBQ2Qsa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLFlBQVk7RUFDWixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLFlBQVk7RUFDWix5QkFBeUI7RUFDekIsZUFBZTtFQUNmLGtCQUFrQjs7QUFFcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixlQUFlO0VBQ2YsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLFlBQVk7QUFDZDtBQUZBO0VBQ0UsWUFBWTtBQUNkO0FBRkE7RUFDRSxZQUFZO0FBQ2Q7QUFGQTtFQUNFLFlBQVk7QUFDZDtBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLGNBQWM7O0FBRWhCO0FBRUE7RUFDRSx1QkFBdUI7RUFDdkIsa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2Qsb0JBQW9CO0FBQ3RCO0FBRUE7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLHNCQUFzQjtFQUN0QixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUVBO0VBQ0UsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixjQUFjO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY3VycmVuY3kvY3VycmVuY3kuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInAge1xyXG4gIGNvbG9yOiByZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtZmFtaWx5OiAnU2Vnb2UgVUknLCBUYWhvbWEsIEdlbmV2YSwgVmVyZGFuYSwgc2Fucy1zZXJpZjtcclxufVxyXG5oMSB7XHJcbiAgZm9udC1mYW1pbHk6ICdTZWdvZSBVSScsIFRhaG9tYSwgR2VuZXZhLCBWZXJkYW5hLCBzYW5zLXNlcmlmO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBjb2xvcjogIzQyODVmNDtcclxufVxyXG5cclxuaDIge1xyXG4gIGNvbG9yOiAjZWE0MzM1O1xyXG4gIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1mYW1pbHk6ICdTZWdvZSBVSScsIFRhaG9tYSwgR2VuZXZhLCBWZXJkYW5hLCBzYW5zLXNlcmlmO1xyXG59XHJcbmgzIHtcclxuICBjb2xvcjogI2ZiYmM1MDtcclxuICBmb250LWZhbWlseTogJ1NlZ29lIFVJJywgVGFob21hLCBHZW5ldmEsIFZlcmRhbmEsIHNhbnMtc2VyaWY7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5jb250ZW50cyB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbn1cclxuXHJcbi5pbnB1dHMge1xyXG4gIHdpZHRoOiAzMDBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcclxufVxyXG5cclxuI2lucHV0RnJvbSB7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICBoZWlnaHQ6IDMwcHg7XHJcbiAgd2lkdGg6IDMwMHB4O1xyXG4gIGJhY2tncm91bmQ6ICMzNGE4NTM7XHJcbiAgcGFkZGluZzogMXB4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMzNGE4NTM7XHJcbiAgZGlzcGxheTogaW5saW5lO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHJcbn1cclxuXHJcbiNpbnB1dFRvIHtcclxuICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gIGJhY2tncm91bmQ6ICNlYTQzMzU7XHJcbiAgcGFkZGluZzogMXB4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICNlYTQzMzU7XHJcbiAgZGlzcGxheTogaW5saW5lO1xyXG4gIGhlaWdodDogMzBweDtcclxuICB3aWR0aDogMzAwcHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG46OnBsYWNlaG9sZGVyIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5ib3hlcyB7XHJcbiAgcGFkZGluZy10b3A6ICAxcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHBhZGRpbmctbGVmdDogNDUlO1xyXG59XHJcblxyXG4jZnJvbURyb3Age1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcclxuICBwYWRkaW5nLWJvdHRvbTogMSU7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcblxyXG59XHJcblxyXG4jdG9Ecm9wIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCBncmVlbjtcclxuICBwYWRkaW5nLWJvdHRvbTogMSU7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbn1cclxuXHJcbiNyYXRlIHtcclxuICBib3JkZXI6IHNvbGlkIGdyYXk7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICBjb2xvcjogdmlvbGV0O1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcclxufVxyXG5cclxuc2VsZWN0IHtcclxuICBjb2xvcjogYmxhY2s7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGdyZXk7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG59XHJcblxyXG5pbnB1dCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2N1cnJlbmN5L2N1cnJlbmN5LmNvbXBvbmVudC5jc3MifQ== */");
 
 /***/ }),
 
@@ -501,28 +498,9 @@ let CurrencyComponent = class CurrencyComponent {
         this.http = http;
         this.countryCodes = [];
         this.countryNames = new Map();
-        this.fromCurr = 'EUR';
-        this.toCurr = 'GBP';
+        this.fromCurr = 'USD';
+        this.toCurr = 'LKR';
     }
-    // private _graphData: any = {
-    //   nodes: [
-    //     {data: {id: 'j', name: 'Jerry', faveColor: '#6FB1FC', faveShape: 'triangle'}},
-    //     {data: {id: 'e', name: 'Elaine', faveColor: '#EDA1ED', faveShape: 'ellipse'}},
-    //     {data: {id: 'k', name: 'Kramer', faveColor: '#86B342', faveShape: 'octagon'}},
-    //     {data: {id: 'g', name: 'George', faveColor: '#F5A45D', faveShape: 'rectangle'}}
-    //   ],
-    //   edges: [
-    //     {data: {source: 'j', target: 'e', faveColor: '#6FB1FC'}},
-    //     {data: {source: 'j', target: 'k', faveColor: '#6FB1FC'}},
-    //     {data: {source: 'j', target: 'g', faveColor: '#6FB1FC'}},
-    //     {data: {source: 'e', target: 'j', faveColor: '#EDA1ED'}},
-    //     {data: {source: 'e', target: 'k', faveColor: '#EDA1ED'}},
-    //     {data: {source: 'k', target: 'j', faveColor: '#86B342'}},
-    //     {data: {source: 'k', target: 'e', faveColor: '#86B342'}},
-    //     {data: {source: 'k', target: 'g', faveColor: '#86B342'}},
-    //     {data: {source: 'g', target: 'j', faveColor: '#F5A45D'}}
-    //   ]
-    // };
     numberOnly(event) {
         const charCode = (event.which) ? event.which : event.keyCode;
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -534,12 +512,6 @@ let CurrencyComponent = class CurrencyComponent {
         this.fetchCountries();
         this.getCurrencyRate();
     }
-    // get graphData(): any {
-    //   return this.graphData;
-    // }
-    // set graphData(value: any) {
-    //   this.graphData = value;
-    // }
     fetchCountries() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
@@ -604,7 +576,7 @@ CurrencyComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ngx-cytoscape {\r\n  height: 50vh;\r\n  float: left;\r\n  position: relative;\r\n  border: solid #21c0c0;\r\n  width: 50em;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ3JhcGgvZ3JhcGguY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixXQUFXO0FBQ2IiLCJmaWxlIjoic3JjL2FwcC9ncmFwaC9ncmFwaC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibmd4LWN5dG9zY2FwZSB7XHJcbiAgaGVpZ2h0OiA1MHZoO1xyXG4gIGZsb2F0OiBsZWZ0O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBib3JkZXI6IHNvbGlkICMyMWMwYzA7XHJcbiAgd2lkdGg6IDUwZW07XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("ngx-cytoscape {\n  height: 50vh;\n  float: left;\n  position: relative;\n  border: solid #21c0c0;\n  width: 50em;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ3JhcGgvZ3JhcGguY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixXQUFXO0FBQ2IiLCJmaWxlIjoic3JjL2FwcC9ncmFwaC9ncmFwaC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibmd4LWN5dG9zY2FwZSB7XG4gIGhlaWdodDogNTB2aDtcbiAgZmxvYXQ6IGxlZnQ7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgYm9yZGVyOiBzb2xpZCAjMjFjMGMwO1xuICB3aWR0aDogNTBlbTtcbn1cbiJdfQ== */");
 
 /***/ }),
 
@@ -624,7 +596,13 @@ __webpack_require__.r(__webpack_exports__);
 
 let GraphComponent = class GraphComponent {
     constructor() {
-        this._graphData = {
+        this.layout = {
+            name: 'test',
+            rankDir: 'LR',
+            directed: true,
+            padding: 0
+        };
+        this.graphData = {
             nodes: [
                 { data: { id: 'j', name: 'Jerry', faveColor: '#6FB1FC', faveShape: 'triangle' } },
                 { data: { id: 'e', name: 'Elaine', faveColor: '#EDA1ED', faveShape: 'ellipse' } },
@@ -646,11 +624,8 @@ let GraphComponent = class GraphComponent {
     }
     ngOnInit() {
     }
-    get graphData() {
-        return this.graphData;
-    }
-    set graphData(value) {
-        this.graphData = value;
+    nodeChange(event) {
+        this.node_name = event;
     }
 };
 GraphComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -730,7 +705,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Vatch\Documents\GitHub\Convertex\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/vatch/Documents/Convertex/src/main.ts */"./src/main.ts");
 
 
 /***/ })

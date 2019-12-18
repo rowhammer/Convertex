@@ -14,8 +14,8 @@ export class CurrencyComponent implements OnInit {
   swappedRate: any;
   fromValue: any;
   toValue: any;
-  fromCurr: any = 'USD';
-  toCurr: any = 'LKR';
+  fromCurr: any = 'EUR';
+  toCurr: any = 'GBP';
 
   // private _graphData: any = {
   //   nodes: [
